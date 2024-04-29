@@ -156,8 +156,8 @@ st.markdown('### :busts_in_silhouette: Customer Needs Channels')
 responses_channels = {}
 
 # STATEMENT 10
-stat9 = st.select_slider('xxxxx',
-	options=["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"], key = 'stat9')
+stat10 = st.select_slider('Our potential customers need a personal approach to selling, that is someone to talk to in person or over the phone:',
+	options=["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"], key = 'stat10')
 
 if stat1 == 'High':
 	responses_channels['Direct Sales Force'] = lab_stat_3_14[stat9]
@@ -165,22 +165,22 @@ else:
 	responses_channels['Telemarketing'] = lab_stat_3_14[stat9]
 
 # STATEMENT 11
-stat11 = st.select_slider('xxxxx',
+stat11 = st.select_slider('Our target market would be more effectively reached through partners who distribute our cloud service: ',
 	options=["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"], key = 'stat11')
 responses_channels['Distributors'] = lab_stat_3_14[stat11]
 
 # STATEMENT 12
-stat12 = st.select_slider('xxxxx',
+stat12 = st.select_slider('Our service needs to be integrated with third-party products and services to provide more value to the end customer:',
 	options=["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"], key = 'stat12')
 responses_channels['Value-added partners'] = lab_stat_3_14[stat12]
 
 # STATEMENT 13
-stat13 = st.select_slider('xxxxx',
+stat13 = st.select_slider('Our potential customers are mostly online and prefer easy online transactions: ',
 	options=["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"], key = 'stat13')
 responses_channels['Internet'] = lab_stat_3_14[stat13]
 
 # STATEMENT 14
-stat14 = st.select_slider('xxxxx',
+stat14 = st.select_slider('Our target market frequently attends industry events, conferences, and trade shows:',
 	options=["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"], key = 'stat14')
 responses_channels['Trade Shows'] = lab_stat_3_14[stat14]
 
