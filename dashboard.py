@@ -3,9 +3,9 @@ import streamlit as st
 
 def get_sales_approaches_resources(score):
 	if score == 3:
-		return ['Social Selling', 'Problem-Solving Selling', 'Need-Satisfaction Selling', 'Challenger Selling', 'Enterprise Selling', 'Consultative Selling']
+		return ['Social Selling', 'Problem-Solving Selling', 'Need-Satisfaction Selling', 'Challenger Selling', 'Enterprise Selling', 'Consultative Selling', 'Value-based Selling']
 	elif score == 2:
-		return ['Challenger Selling', 'Consultative Selling', 'Enterprise Selling', 'Social Selling', 'Problem-Solving Selling', 'Need-Satisfaction Selling']
+		return ['Challenger Selling', 'Consultative Selling', 'Enterprise Selling', 'Social Selling', 'Problem-Solving Selling', 'Need-Satisfaction Selling', 'Value-based Selling']
 	elif score == 1:
 		return ['Social Selling', 'Need-Satisfaction Selling']
 
@@ -20,14 +20,14 @@ def get_sales_channels_resources(score):
 def get_sales_approaches_innovation(score1, score2, approaches1):
 	if score1 == 3:
 		if score2 == 3:
-			return ['Consultative Selling', 'Enterprise Selling']
+			return ['Consultative Selling', 'Enterprise Selling', 'Value-based Selling']
 		elif score2 == 2:
-			return ['Problem-Solving Selling', 'Challenger Selling']
+			return ['Consultative Selling', 'Problem-Solving Selling', 'Challenger Selling', 'Value-based Selling']
 		elif score2 == 1:
 			return ['Need-Satisfaction Selling', 'Social Selling']
 	elif score1 == 2:
 		if score2 == 3:
-			return ['Enterprise Selling', 'Consultative Selling']
+			return ['Enterprise Selling', 'Consultative Selling', 'Value-based Selling']
 		elif score2 == 2:
 			return ['Challenger Selling', 'Problem-Solving Selling']
 		elif score2 == 1:
@@ -117,29 +117,35 @@ stat3 = st.select_slider('Our target customers need and/or value a consultative 
 responses_approaches['Consultative Selling'] = lab_stat_3_14[stat3]
 
 # STATEMENT 4
-stat4 = st.select_slider('xxxxx', 
+stat4 = st.select_slider('Our target customers need and/or value a cross-functional sales process, involving multiple stakeholders and different departments from both sides: ', 
 	options=["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"], key = 'stat4')
 responses_approaches['Enterprise Selling'] = lab_stat_3_14[stat4]
 
 # STATEMENT 5
-stat5 = st.select_slider('xxxxx', 
+stat5 = st.select_slider('Our target customers might benefit from new insights about their industry and ways of thinking, and they might therefore need to interact with salespeople who act as knowledge source: ', 
 	options=["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"], key = 'stat5')
 responses_approaches['Challenger Selling'] = lab_stat_3_14[stat5]
 
 # STATEMENT 6
-stat6 = st.select_slider('xxxxx',
+stat6 = st.select_slider('Our target customers are likely to enter the sales funnel without a direct interaction with sales personnel, therefore making use of the Internet and social media channels (e.g., LinkedIn) to learn more about their needs and possible solutions:',
 	options=["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"], key = 'stat6')
 responses_approaches['Social Selling'] = lab_stat_3_14[stat6]
 
 # STATEMENT 7
-stat7 = st.select_slider('xxxxx', 
+stat7 = st.select_slider('Our target customers are aware of the problem they face and seek tailored solutions for their unique needs:', 
 	options=["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"], key = 'stat7')
 responses_approaches['Need-Satisfaction Selling'] = lab_stat_3_14[stat7]
 
 # STATEMENT 8
-stat8 = st.select_slider('xxxxx', 
+stat8 = st.select_slider('Our target customers are often not aware of the problem they face and they therefore need to be educated: ', 
 	options=["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"], key = 'stat8')
 responses_approaches['Problem-Solving Selling'] = lab_stat_3_14[stat8]
+
+# STATEMENT 9
+stat9 = st.select_slider('Our target customers are often not aware of the problem they face and they therefore need to be educated: ', 
+	options=["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"], key = 'stat9')
+responses_approaches['Value-based Selling'] = lab_stat_3_14[stat9]
+
 
 max_score_approaches = max(responses_approaches.values())
 recommended_approaches = [approach for approach, score in responses_approaches.items() if score == max_score_approaches]
@@ -149,7 +155,7 @@ recommended_approaches = [approach for approach, score in responses_approaches.i
 st.markdown('### :busts_in_silhouette: Customer Needs Channels')
 responses_channels = {}
 
-# STATEMENT 9
+# STATEMENT 10
 stat9 = st.select_slider('xxxxx',
 	options=["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"], key = 'stat9')
 
@@ -158,25 +164,25 @@ if stat1 == 'High':
 else:
 	responses_channels['Telemarketing'] = lab_stat_3_14[stat9]
 
-# STATEMENT 10
-stat10 = st.select_slider('xxxxx',
-	options=["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"], key = 'stat10')
-responses_channels['Distributors'] = lab_stat_3_14[stat10]
-
 # STATEMENT 11
 stat11 = st.select_slider('xxxxx',
 	options=["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"], key = 'stat11')
-responses_channels['Value-added partners'] = lab_stat_3_14[stat11]
+responses_channels['Distributors'] = lab_stat_3_14[stat11]
 
 # STATEMENT 12
 stat12 = st.select_slider('xxxxx',
 	options=["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"], key = 'stat12')
-responses_channels['Internet'] = lab_stat_3_14[stat12]
+responses_channels['Value-added partners'] = lab_stat_3_14[stat12]
 
 # STATEMENT 13
 stat13 = st.select_slider('xxxxx',
 	options=["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"], key = 'stat13')
-responses_channels['Trade Shows'] = lab_stat_3_14[stat13]
+responses_channels['Internet'] = lab_stat_3_14[stat13]
+
+# STATEMENT 14
+stat14 = st.select_slider('xxxxx',
+	options=["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"], key = 'stat14')
+responses_channels['Trade Shows'] = lab_stat_3_14[stat14]
 
 max_score_channels = max(responses_channels.values())
 recommended_channels = [approach for approach, score in responses_channels.items() if score == max_score_channels]
@@ -205,28 +211,28 @@ if st.button("Submit"):
 	asterisk_note = ""
 	
 	# Initialize a note for intensive resource approaches, if applicable
-	if score1 == 2 and score2 == 3 and ('Consultative Selling' in common_approaches or 'Enterprise Selling' in common_approaches):
+	if score1 == 2 and score2 == 3 and ('Consultative Selling' in common_approaches or 'Enterprise Selling' in common_approaches or 'Value-based Selling' in common_approaches):
 		asterisk_note = "*Please note that while Enterprise Selling or Consultative Selling are resource intensive approaches, they can be implemented with medium level of resources, provided that the startup focuses on a smaller and fewer clients contemporarily."
 	resource_intensive_note = "*Please note that although we recommend you implement this channel(s), this suggestion prioritises your customers' needs, but might be too resource intensive."
  
 	if not common_approaches and not common_channels:
 		st.markdown(f"Based on your resource availability and your product/service's level of innovativeness, the most suitable approaches and channels are:")
 		for item in approaches_final:
-			st.markdown(f"- **{item}**: {mega_dict_1[item]}")
+			st.markdown(f"- **{item}**")
 		st.write('')
 	
 		for item in channels_final:
-			st.markdown(f"- **{item}**: {mega_dict_1[item]}")
+			st.markdown(f"- **{item}**")
 
 		st.markdown('-------')
 		
 		st.markdown(f"Based on the customer needs of your target segment, the most suitable approaches and channels are:")
 		for item in recommended_approaches:
-			st.markdown(f"- **{item}**: {mega_dict_1[item]}")
+			st.markdown(f"- **{item}**")
 		st.write('')
 		
 		for item in recommended_channels:
-			st.markdown(f"- **{item}**: {mega_dict_1[item]}")
+			st.markdown(f"- **{item}**")
 
 		st.write('')
 		st.markdown('-------')
@@ -237,23 +243,34 @@ if st.button("Submit"):
 	else:
 		st.markdown(f"Based on your resource availability and your product/service's level of innovativeness, the most suitable approaches and channels are:")
 		for item in approaches_final:
-			st.markdown(f"- **{item}**: {mega_dict_1[item]}")
+			st.markdown(f"- **{item}**")
 		st.write('')
 	
 		for item in channels_final:
-			st.markdown(f"- **{item}**: {mega_dict_1[item]}")
+			st.markdown(f"- **{item}**")
 
 		st.markdown('-------')
 		
 		st.markdown(f"Based on the customer needs of your target segment, the most suitable approaches and channels are:")
 		for item in recommended_approaches:
-			st.markdown(f"- **{item}**: {mega_dict_1[item]}")
+			st.markdown(f"- **{item}**")
 		st.write('')
 		
 		for item in recommended_channels:
+			st.markdown(f"- **{item}**")
+		
+		st.markdown('-------')
+		st.markdown(f"Therefore, we recommend focusing on the implementation of:")
+
+		exception_list1 = list(common_approaches) if common_approaches else approaches_final
+		exception_list2 = list(common_channels) if common_channels else recommended_channels
+
+		for item in exception_list1:
 			st.markdown(f"- **{item}**: {mega_dict_1[item]}")
 
-		st.markdown(f"Therefore, we recommend focusing on the implementation of: {list(common_approaches) if common_approaches else approaches_final} and {list(common_channels) if common_channels else recommended_channels}.")
+		for item in exception_list2:
+			st.markdown(f"- **{item}**: {mega_dict_1[item]}")
+		
 		if not common_channels:
 			st.markdown(resource_intensive_note)
 		if asterisk_note:
