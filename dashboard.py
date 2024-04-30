@@ -142,7 +142,7 @@ stat8 = st.select_slider('Our target customers are often not aware of the proble
 responses_approaches['Problem-Solving Selling'] = lab_stat_3_14[stat8]
 
 # STATEMENT 9
-stat9 = st.select_slider('Our target customers are often not aware of the problem they face and they therefore need to be educated: ', 
+stat9 = st.select_slider('Our target customers deploy a powerful buying center that focuses less on the immediate savings the solution can deliver, and more on the long-term benefits and value for the whole buying organization:  ', 
 	options=["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"], key = 'stat9')
 responses_approaches['Value-based Selling'] = lab_stat_3_14[stat9]
 
