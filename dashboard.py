@@ -1,3 +1,6 @@
+def render_list_bold_md(lst):
+    return '\n'.join([f'- **{item}**' for item in lst])
+
 def get_sales_approaches_resources(score):
     if score == 3:
         return ['Social Selling', 'Problem-Solving Selling', 'Need-Satisfaction Selling', 'Challenger Selling', 'Enterprise Selling', 'Consultative Selling', 'Value-based Selling' ]
@@ -102,13 +105,13 @@ def generate_final_recommendation(init_approaches, init_channels, customer_appro
     
     # Construct the final message based on the inputs and analyses
     if not common_approaches and not common_channels:
-        message = f"Based on your resource availability and your product/service's level of innovativeness, the most suitable approaches and channels are: {init_approaches} and {init_channels}.\n"
-        message += f"Based on the customer needs of your target segment, the most suitable approaches and channels are: {customer_approaches} and {customer_channels}.\n"
-        message += "Unfortunately, we cannot recommend a fully aligned sales approach and sales channel as your startup resources availability, product innovativeness and customer needs are not aligned. We highly recommend you to revise your current situation and reflect on your availability of resources, product/service and target segment."
+        message = f"### Based on your resource availability and your product/service's level of innovativeness, the most suitable approaches and channels are: \n{render_list_bold_md(init_approaches)} and {render_list_bold_md(init_channels)}.\n"
+        message += f"### Based on the customer needs of your target segment, the most suitable approaches and channels are: \n{render_list_bold_md(customer_approaches)} and {render_list_bold_md(customer_channels)}.\n"
+        message += "### Unfortunately, we cannot recommend a fully aligned sales approach and sales channel as your startup resources availability, product innovativeness and customer needs are not aligned. \nWe highly recommend you to revise your current situation and reflect on your availability of resources, product/service and target segment."
     else:
-        message = f"Based on your resource availability and your product/service's level of innovativeness, the most suitable approaches and channels are: {init_approaches} and {init_channels}.\n"
-        message += f"Based on the customer needs of your target segment, the most suitable approaches and channels are: {customer_approaches} and {customer_channels}.\n"
-        message += f"Therefore, we recommend focusing on the implementation of: {list(common_approaches) if common_approaches else init_approaches} and {list(common_channels) if common_channels else customer_channels}."
+        message = f"### Based on your resource availability and your product/service's level of innovativeness, the most suitable approaches and channels are:\n{render_list_bold_md(init_approaches)} and {render_list_bold_md(init_channels)}.\n"
+        message += f"### Based on the customer needs of your target segment, the most suitable approaches and channels are: \n{render_list_bold_md(customer_approaches)} and {render_list_bold_md(customer_channels)}.\n"
+        message += f"### Therefore, we recommend focusing on the implementation of: \n{render_list_bold_md(list(common_approaches)) if common_approaches else render_list_bold_md(init_approaches)} and {render_list_bold_md(list(common_channels)) if common_channels else render_list_bold_md(customer_channels)}."
 
         if not common_channels:
             message += "\n" + resource_intensive_note
@@ -117,7 +120,7 @@ def generate_final_recommendation(init_approaches, init_channels, customer_appro
         if asterisk_note:
             message += "\n" + asterisk_note
     
-    message += "\n\nWhy did you get these results and what do they mean?:\n"
+    message += "\n\n## Why did you get these results and what do they mean?:\n"
     
     explanations = {
         'Consultative Selling': "Adopting a consultative selling approach means not only to provide a solution, but also helping customers achieve their own strategic goals. Consequently, in this case, salespeople fulfil three key roles during the sales process. Firstly, they act as ‘strategic orchestrators’, as they coordinate the selling firm’s resources to address customer challenges and opportunities. Secondly, they serve as ‘business consultants’, as they become experts in their field to educate clients about their own product, and the competitive landscape they face. Finally, they act as ‘long-term allies’, as they provide support to customers even if there are no immediate sales prospects. Because of this, as a sales approach, it is not only quite resource consuming and may therefore result in a particularly long sales cycle, but it may also be difficult to scale. The DSS recommended a consultative selling approach because: (1) you stated that your target customer need the selling firm to act as a long term partner that helps them achieve their own strategic goals and/or; (2) you stated that your sales department possesses a sufficient level of human and financial resources or is willing to invest in acquiring them and/or; (3) you stated the product you are offering presents a relatively high level of innovativeness and complexity.",
@@ -169,5 +172,5 @@ def interactive_survey_final():
     final_recommendation= generate_final_recommendation(approaches_final, channels_final, customer_approaches, customer_channels, score1, score2)
     print(final_recommendation)
     
-
-interactive_survey_final()
+if __name__ == "__main__":
+    interactive_survey_final()

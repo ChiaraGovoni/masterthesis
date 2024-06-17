@@ -1,0 +1,9 @@
+name = "Sales DSS for Cloud Computing Startups"
+description = "This DSS was developed with to offer guidance to startups operating in the Cloud Computing sector and facing the so-called Pioneer Problem."
+library = "marimo"
+python = "3.12"
+app_file = "app.py"
+requirements_file = "requirements.txt"
+port = 80
+cover_image = "app_cover.jpg"
+exclude = ["*venv", "venv*", ".git", ".env"]
