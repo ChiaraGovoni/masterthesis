@@ -265,6 +265,8 @@ if st.button("Submit"):
 		exception_list1 = list(common_approaches) if common_approaches else approaches_final
 		exception_list2 = list(common_channels) if common_channels else recommended_channels
 
+		st.markdown('Why did I get this results?')
+
 		for item in exception_list1:
 			st.markdown(f"- **{item}**: {mega_dict_1[item]}")
 
