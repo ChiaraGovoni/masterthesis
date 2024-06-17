@@ -171,7 +171,7 @@ responses_channels['Distributors'] = lab_stat_3_14[stat11]
 # STATEMENT 12
 stat12 = st.select_slider('For our target customer to purchase our product, it has to be commercialised through partners that enhance its value by adding  features or service:',
 	options=["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"], key = 'stat12')
-responses_channels['Value-added partners'] = lab_stat_3_14[stat12]
+responses_channels['Value-added intermediaries'] = lab_stat_3_14[stat12]
 
 # STATEMENT 13
 stat13 = st.select_slider('Our potential customers prefer the convenience and flexibility of easy online transactions:',
